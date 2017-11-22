@@ -1,4 +1,4 @@
-package com.example.sqlite;
+package com.example.sqlite.database;
 public class Contact {
 	 
     //private variables

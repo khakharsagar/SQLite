@@ -1,4 +1,4 @@
-package com.example.sqlite;
+package com.example.sqlite.database;
 import java.util.ArrayList;
 import java.util.List;
  
@@ -54,7 +54,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      */
  
     // Adding new contact
-    void addContact(Contact contact) {
+    public void addContact(Contact contact) {
         SQLiteDatabase db = this.getWritableDatabase();
  
         ContentValues values = new ContentValues();
@@ -139,5 +139,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return count
         return cursor.getCount();
     }
- 
+
+    public void deleteAllData() {
+      SQLiteDatabase db = this.getWritableDatabase();
+      db.execSQL("delete from "+ TABLE_CONTACTS);
+      db.close();
+    }
 }
